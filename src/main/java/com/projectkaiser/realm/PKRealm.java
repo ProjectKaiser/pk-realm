@@ -27,13 +27,11 @@ public class PKRealm extends RealmBase{
 
 	@Override
 	protected String getPassword(String arg0) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected Principal getPrincipal(String arg0) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
