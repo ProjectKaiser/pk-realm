@@ -22,6 +22,7 @@ repositories {
 dependencies {
 
     compile 'org.apache.tomcat:tomcat-catalina:8.0.43'
+	compile 'org.apache.httpcomponents:httpclient:4.3.6'    
 
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.12'

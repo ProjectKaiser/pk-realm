@@ -1,0 +1,15 @@
+{"jsonrpc":"2.0", "method":"select", "params":[{
+"scheme":{"type":"PlainAuthScheme","userName":"usr_0012","password":"PWD"},
+"headers":[],
+"args":[],
+"startFrom":41,
+"limit":100,
+"target":"com.triniforce.server.plugins.kernel.files.FTFile",
+"parentOf":1255626,
+"columns":["id","name","created"],
+"where":[{"key":"parent_id", "value": 643}],
+"orderBy":["owner", {"type":"DescField", "field":"status"}],
+"whereExprs":[],
+"functions":[],
+"dbValue":false
+}]}
