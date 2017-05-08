@@ -13,7 +13,7 @@ import java.net.URL;
 public class InvPKRealm {
 
 	
-	public static final String SOAP_URL = "http://localhost:8080/alpha/soap";  
+	public static final String SOAP_URL = "http://localhost:8080/pk/soap";  
 	
 	@SuppressWarnings("rawtypes")
 	public static String readResource(Class cls, String resourceName){
@@ -37,19 +37,26 @@ public class InvPKRealm {
         URL url = new URL(SOAP_URL);
 
         
-        String postData = "{\"jsonrpc\":\"2.0\", \"method\":\"login\", \"params\":[\"u1\",\"q\"]}";
+        String login = "{\"jsonrpc\":\"2.0\", \"method\":\"login\", \"params\":[\"u1\",\"q\"]}";
+        //String logout = "{\"jsonrpc\":\"2.0\", \"method\":\"logout\", \"params\":[]}";
 
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", "text/json");
         //conn.setRequestProperty("Content-Length", String.valueOf(postData.length()));
         conn.setDoOutput(true);
-        conn.getOutputStream().write(postData.getBytes("UTF-8"));
+        conn.getOutputStream().write(login.getBytes("UTF-8"));
 
         Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
-        for (int c; (c = in.read()) >= 0;)
-            System.out.print((char)c);
+//        for (int c; (c = in.read()) >= 0;)
+//            System.out.print((char)c);
+        
+        StringBuffer sb = new StringBuffer(); 
+        for (int c; (c = in.read()) >= 0;)sb.append((char)c);
+        String s = sb.toString();
+        System.out.println("s=" + s);
+
     }
 	
 }
