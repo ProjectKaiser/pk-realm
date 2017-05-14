@@ -2257,7 +2257,7 @@ public class Json implements java.io.Serializable, Iterable<Json>
             return this;
         }
 
-		public Json with(Json object, Json...options)
+		public Json with(Json object, Json options[])
 		{
 			if (object == null) return this;
 			if (!object.isArray())
@@ -2415,7 +2415,7 @@ public class Json implements java.io.Serializable, Iterable<Json>
             return this;
         }
 
-		public Json with(Json x, Json...options)
+		public Json with(Json x, Json options[])
 		{
 			if (x == null) return this;			
 			if (!x.isObject())
