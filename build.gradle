@@ -18,6 +18,10 @@ repositories {
     jcenter()
 }
 
+sourceSets {
+	test.java.srcDirs = ['inv']
+}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
 
