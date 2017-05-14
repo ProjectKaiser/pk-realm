@@ -37,6 +37,9 @@ public class InvPKRealm {
         URL url = new URL(SOAP_URL);
 
         
+        // {"jsonrpc":"2.0","id":1,"error":{"message"
+        // {"jsonrpc":"2.0","id":1,"result":"565cb6e8-93e8-4925-9983-7b1dd47ffc7d"}
+        
         String postData = "{\"jsonrpc\":\"2.0\", \"method\":\"login\", \"params\":[\"u1\",\"q\"]}";
 
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -48,8 +51,12 @@ public class InvPKRealm {
 
         Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
-        for (int c; (c = in.read()) >= 0;)
-            System.out.print((char)c);
+        StringBuffer sb = new StringBuffer(); 
+        for (int c; (c = in.read()) >= 0;){
+            sb.append((char)c);
+        }
+        String s = sb.toString();
+        System.out.println(s);
     }
 	
 }
