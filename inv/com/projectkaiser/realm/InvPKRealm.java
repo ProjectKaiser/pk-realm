@@ -33,7 +33,7 @@ public class InvPKRealm {
     public static void main(String[] args) throws Exception {
     	
     	PKAPIClient pkClient = new PKAPIClient(SOAP_URL); 
-        String s = pkClient.login("u1", "\"\\");
+        String s = pkClient.login("u1", "qq");
         System.out.println(s);
     }
 	

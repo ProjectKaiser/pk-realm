@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<display-name>X-Files</display-name>
+	<description>
+		X-Files which must be protected
+	</description>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>X-Files</web-resource-name>
+    		<url-pattern>/*</url-pattern>
+    	</web-resource-collection>
+		<auth-constraint>
+			<role-name>pkuser</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+
+</web-app>
