@@ -7,14 +7,16 @@ import junit.framework.TestCase;
 
 public class PKRealmTest extends TestCase {
 	
-	/**
-	 * 
-	 */
 	public static final String SOAP_URL = "http://localhost:8080/alpha/soap";
+	/**
+	 * PK server must be running and have usr = u1 pwd = q 
+	 */
 	public void testOnRealPK(){
     	PKAPIClient pkClient = new PKAPIClient(SOAP_URL); 
-        String s = pkClient.login("u1", "qq");
+        Object s = pkClient.queryUserId("u1", "q");
         assertNotNull(s);
+        s = pkClient.queryUserId("u1", "qq");
+        assertNull(s);
         System.out.println(s);
 	}
 	

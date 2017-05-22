@@ -36,13 +36,12 @@ public class PKAPIClient {
 	 * 
 	 */
 	
-	public String login(String usr, String pwd){
+	public String queryUserId(String usr, String pwd){
 		
 		try{
 		
-			String postData = String.format("{\"jsonrpc\":\"2.0\", \"method\":\"login\", \"params\":[\"%s\",\"%s\"]}"
-					,escape(usr)
-					,escape(pwd));
+			String postData = String.format("{\"jsonrpc\":\"2.0\", \"method\":\"queryUserId\", \"params\":[\"%s\"]}"
+					,escape("usrpwd:" + usr +":" + pwd));
 	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 	        conn.setRequestMethod("POST");
 	        conn.setRequestProperty("Content-Type", "text/json");
@@ -57,14 +56,18 @@ public class PKAPIClient {
 	            sb.append((char)c);
 	        }
 	        String s = sb.toString();
-	        String exp = "\"result\"[^\"]*:[^\"]*\"([^\"]*)\"";
+	        String exp = "\"result\"[^\"]*:[^\\d]*([\\d]*)";
 	        Pattern pattern = Pattern.compile(exp);
 	        Matcher m = pattern.matcher(s);
 	        String res = null;
 	        while(m.find()){
 	        	res = m.group(1);
 	        }
+	        if(res == null){
+	        	System.err.println("*** PKAPIClient, something wrong: " + s);
+	        }
 	        return res;
+	        
 		} catch (Exception e){
 			return null;
 		}

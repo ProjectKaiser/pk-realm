@@ -13,6 +13,12 @@ public class PKRealm extends RealmBase{
 
 	@Override
 	public Principal authenticate(String usr, String pwd) {
+		if(null == usr){
+			return null;
+		}
+		if(null == pwd){
+			return null;
+		}		
 		// TODO Auto-generated method stub
 		if("usr".equals(usr) && "pwd".equals(pwd)){
 			return new GenericPrincipal(usr,  pwd, Arrays.asList("pkuser"));
