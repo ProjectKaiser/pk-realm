@@ -10,20 +10,26 @@ public class PKRealm extends RealmBase{
 
 	protected static final String name = "Project Kaiser Realm";
 	
-
+	private String url;
+	
 	@Override
 	public Principal authenticate(String usr, String pwd) {
+		if(null == url){
+			return null;
+		}
 		if(null == usr){
 			return null;
 		}
 		if(null == pwd){
 			return null;
-		}		
-		// TODO Auto-generated method stub
-		if("usr".equals(usr) && "pwd".equals(pwd)){
-			return new GenericPrincipal(usr,  pwd, Arrays.asList("pkuser"));
+		}	
+		
+		PKAPIClient cl = new PKAPIClient(url);
+		if(null == cl.queryUserId(usr, pwd)){
+			return null;
 		}
-		return null;
+		return new GenericPrincipal(usr,  pwd, Arrays.asList("pkuser"));
+
 	}
 	
 	@Override
@@ -39,6 +45,14 @@ public class PKRealm extends RealmBase{
 	@Override
 	protected Principal getPrincipal(String arg0) {
 		return null;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }
