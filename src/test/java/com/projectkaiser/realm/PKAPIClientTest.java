@@ -13,9 +13,9 @@ public class PKAPIClientTest extends TestCase {
 	 */
 	public void testOnRealPK(){
     	PKAPIClient pkClient = new PKAPIClient(SOAP_URL); 
-        Object s = pkClient.queryUserId("u1", "qq");
+        Object s = pkClient.queryUserId("u1", "q");
         assertNotNull(s);
-        s = pkClient.queryUserId("u1", "q");
+        s = pkClient.queryUserId("u1", "qq");
         assertNull(s);
 	}
 	
