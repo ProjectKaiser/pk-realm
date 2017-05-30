@@ -1,2 +1,10 @@
-# pk-realm
-tomcat realm for project kaiser
+# Обзор
+
+Модуль решает задачу обеспечения доступа к ресурсам, используя авторизацию через Project Kaiser.
+
+# Установка
+
+[Скачать](https://www.google.com)
+
+
+
