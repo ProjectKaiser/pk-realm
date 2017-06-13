@@ -64,7 +64,7 @@ public class PKAPIClient {
 	        	res = m.group(1);
 	        }
 	        if(res == null){
-	        	System.err.println(String.format("*** PKAPIClient, something wrong with usr: '%s' pwd: '%s', server returned: %s ", usr, pwd, s));
+	        	System.err.println(String.format("*** PKAPIClient: something wrong with usr: '%s' pwd: '%s', server returned: %s ", usr, pwd, s));
 	        }
 	        return res;
 	        

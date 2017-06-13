@@ -11,6 +11,9 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -19,7 +22,7 @@ repositories {
 }
 
 sourceSets {
-	test.java.srcDirs = ['inv']
+//	test.java.srcDirs = ['inv']
 }
 
 // In this section you declare the dependencies for your production and test code
