@@ -1,4 +1,4 @@
-sudo:  false
+sudo: false
 language: java
 before_install:
  - chmod +x gradlew
